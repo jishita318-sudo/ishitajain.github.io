@@ -1,1 +1,152 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { NavLink } from "react-router-dom";
+import { ArrowRight, Sparkles, Users, Trophy } from "lucide-react";
+import heroImage from "@/assets/hero-image.jpg";
+
+const Index = () => {
+  const highlights = [
+    {
+      icon: Sparkles,
+      title: "Creative Vision",
+      description: "Innovative fashion concepts that push boundaries"
+    },
+    {
+      icon: Users,
+      title: "Client Focus",
+      description: "Collaborative approach to bring visions to life"
+    },
+    {
+      icon: Trophy,
+      title: "Excellence",
+      description: "Commitment to quality and professional standards"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-primary/60 backdrop-blur-[2px]"></div>
+        </div>
+        
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="animate-fade-in">
+            <Badge 
+              variant="outline" 
+              className="mb-6 text-white border-white/30 bg-white/10 backdrop-blur-sm"
+            >
+              Fashion Designer & Stylist
+            </Badge>
+            
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+              Hello!!
+            </h1>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+              My Name is <span className="text-accent">Ishita Jain</span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
+              Passionate fashion designer blending creative vision with strategic thinking. 
+              Specializing in Fashion Styling, Design, and Marketing.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <NavLink to="/about">
+                <Button 
+                  size="lg" 
+                  className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow hover:shadow-glow transition-all duration-300"
+                >
+                  Discover My Journey
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </NavLink>
+              <NavLink to="/projects">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="text-white border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:text-white transition-all duration-300"
+                >
+                  View My Work
+                </Button>
+              </NavLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlights Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              What Sets Me Apart
+            </h3>
+            <div className="w-24 h-1 bg-gradient-accent mx-auto"></div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {highlights.map((highlight, index) => (
+              <div
+                key={highlight.title}
+                className="animate-scale-in"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <Card className="shadow-elegant border-0 bg-card/50 backdrop-blur-sm hover:shadow-hover transition-all duration-300 group h-full">
+                  <CardContent className="p-8 text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-accent rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <highlight.icon className="h-8 w-8 text-accent-foreground" />
+                    </div>
+                    <h4 className="text-xl font-bold text-foreground mb-4">
+                      {highlight.title}
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {highlight.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Card className="shadow-elegant border-0 bg-card/50 backdrop-blur-sm">
+            <CardContent className="p-12">
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Ready to Create Something Amazing?
+              </h3>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
+                Let's collaborate to bring your fashion vision to life. Whether you need 
+                styling, design, or strategic fashion marketing, I'm here to help.
+              </p>
+              <NavLink to="/contact">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-accent border-0 shadow-glow hover:shadow-glow transition-all duration-300"
+                >
+                  Let's Work Together
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </NavLink>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Index;
+
 
